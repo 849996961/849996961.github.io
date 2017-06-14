@@ -1,49 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>汉文集团</title>
     <style>
-        body{
+        body {
             background-color: lightblue;
         }
-        .div{
+        
+        .div {
             width: 40vw;
             height: 45vh;
             margin: 5vh auto;
-
         }
-        .button{
+        
+        .button {
             color: lightpink;
             font-size: 8vw;
-            background-color:black;
+            background-color: black;
             border: 1px solid #000;
             border-top-left-radius: 1vw;
             border-top-right-radius: 1vw;
             border-bottom-left-radius: 1vw;
             border-bottom-right-radius: 1vw;
         }
-        p{
+        
+        p {
             font-size: 20px;
         }
-        h2{
+        
+        h2 {
             color: red;
         }
-        .lian{
+        
+        .lian {
             width: 40vw;
-            
             margin: 10px auto;
         }
-        .bu{
+        
+        .bu {
             height: 35px;
             font-size: 15px;
         }
     </style>
 </head>
+
 <body>
-    
+
     <div class="div">
         <button type="" id='dian' onclick="dian()" class="button">点击谁是坑</button>
         <p id='xian'></p>
@@ -52,54 +58,67 @@
         <h2>23号上梁山</h2>
         <a href="http://www.170ba.com/"><button class="bu">点击进入梁山官网</button></a>
     </div>
+    <audio src="" id="au" autoplay>
+
+    </audio>
 
     <script>
-        var arr=[
-    
-    {name:'闪开'},
-    {name:'闪开'},
-    {name:'万夫'},
-    {name:'闪开'},
-    {name:'闪开'},
-    {name:'闪开'},
-    {name:'笑哈哈'},
-    {name:'闪开'},
-    {name:'闪开'},
-    {name:'闪开'},
-    {name:'闪开'},
-    {name:'闪开'},
-    {name:'村长'},
-    
-    {name:'肖白痴'},
-    {name:'扁鼻子'},
-    {name:'少白狗'},
-    {name:'肖白痴'},
-    {name:'肖白痴'},
-    {name:'肖白痴'},
-    {name:'肖白痴'},
-    
-    
-    {name:'布加迪'},
-    {name:'肖白痴'},
-    {name:'肖白痴'},
-    {name:'梁汉文'},
-    {name:'肖白痴'},
-    {name:'肖白痴'},
-    {name:'老人家'},
-    
-    {name:'肖白痴'},
-    {name:'肖白痴'},
-    {name:'八狗'},
-    {name:'肖白痴'},
-    {name:'肖白痴'},
-]
+        var arr = [
+            { name: '闪开' },
+            { name: '闪开' },
+            { name: '万夫' },
+            { name: '闪开' },
+            { name: '闪开' },
+            { name: '闪开' },
+            { name: '笑哈哈' },
+            { name: '闪开' },
+            { name: '闪开' },
+            { name: '闪开' },
+            { name: '闪开' },
+            { name: '闪开' },
+            { name: '村长' },
+            { name: '肖白痴' },
+            { name: '扁鼻子' },
+            { name: '少白狗' },
+            { name: '肖白痴' },
+            { name: '肖白痴' },
+            { name: '肖白痴' },
+            { name: '肖白痴' },
+            { name: '布加迪' },
+            { name: '肖白痴' },
+            { name: '肖白痴' },
+            { name: '梁汉文' },
+            { name: '肖白痴' },
+            { name: '肖白痴' },
+            { name: '老人家' },
+            { name: '肖白痴' },
+            { name: '肖白痴' },
+            { name: '八狗' },
+            { name: '肖白痴' },
+            { name: '肖白痴' },
+        ]
 
-var but=document.getElementById('dian');
-var xian=document.getElementById('xian')
-function dian(){
-    var suiji=Math.floor(Math.random()*arr.length)
-    xian.innerHTML=arr[suiji].name
-}
+        var but = document.getElementById('dian');
+        var xian = document.getElementById('xian')
+        function dian() {
+            var suiji = Math.floor(Math.random() * arr.length)
+            xian.innerHTML = arr[suiji].name
+        }
+   
+        var yin=["http://bbs.170ba.com/梁山传奇1.mp3",
+                "http://bbs.170ba.com/梁山传奇.mp3",
+                "http://bbs.170ba.com/梁山传奇2.mp3",
+                "http://bbs.170ba.com/梁山传奇3.mp3",
+                "http://bbs.170ba.com/梁山传奇4.mp3",
+                "http://bbs.170ba.com/梁山传奇5.mp3",
+                "http://bbs.170ba.com/梁山传奇6.mp3",
+                "http://bbs.170ba.com/梁山传奇7.mp3",
+                "http://bbs.170ba.com/梁山传奇8.mp3",
+                "http://bbs.170ba.com/梁山传奇9.mp3"]
+        var yinsui=Math.floor(Math.random()*yin.length)
+        var au=document.getElementById('au')
+        au.src=yin[yinsui]
     </script>
 </body>
+
 </html>
