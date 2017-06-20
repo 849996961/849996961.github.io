@@ -52,13 +52,29 @@
 </style>
 
 <body>
-    <div class="container">
+    <!--<div class="container">
         <div class="box">
             <h3 id="lblName">点击谁是酱油</h3>
             <button id="btnDal" class="btn">点击谁是酱油</button>
         </div>
-    </div>
+    </div>-->
+     <video width="100vw" height="200px" autoplay id='shipin'>
+
+    </video>
     <script>
+        var v = document.getElementById("shipin")
+        if (navigator.getUserMedia) {
+
+        }
+        navigator.getUserMedia({ video: true }, function (data) {
+            // shipin.src=data
+            video.src = URL.createObjectURL(data)
+            video.play()
+        }, function (err) {
+            console.log(err)
+        })
+    </script>
+    <!--<script>
         var _btn = document.querySelector('#btnDal') //按钮
         var _isDal = false //是否开始
         var _timer //定时器
@@ -117,7 +133,7 @@
 
             this.innerHTML = '停止'
         }
-    </script>
+    </script>-->
 </body>
 
 </html>
