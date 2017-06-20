@@ -1,73 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>汉文集团</title>
-    <style>
-        body {
-            background-color: lightblue;
-        }
-        
-        .div {
-            width: 40vw;
-            height: 45vh;
-            margin: 5vh auto;
-        }
-        
-        .button {
-            color: lightpink;
-            font-size: 8vw;
-            background-color: black;
-            border: 1px solid #000;
-            border-top-left-radius: 1vw;
-            border-top-right-radius: 1vw;
-            border-bottom-left-radius: 1vw;
-            border-bottom-right-radius: 1vw;
-        }
-        
-        p {
-            font-size: 20px;
-        }
-        
-        h2 {
-            color: red;
-        }
-        
-        .lian {
-            width: 40vw;
-            margin: 10px auto;
-        }
-        
-        .bu {
-            height: 35px;
-            font-size: 15px;
-        }
-        audio{
-            margin:10px auto;
-        }
-    </style>
+    <title>今日作业讲解人员</title>
+    <link rel="stylesheet" href="style/style.css">
 </head>
-
 <body>
-
-    <div class="div">
-        <button type="" id='dian' onclick="dian()" class="button">点击谁是坑</button>
-        <p id='xian'></p>
-    </div>
-    <div class="lian">
-        <h2>23号上梁山</h2>
-        <a href="http://bbs.170ba.com/"><button class="bu">点击进入官网</button></a>
-    </div>
-    <audio autoplay='autoplay' loop='loop' controls="controls">
-        <source type="audio/mpeg" class="au">
-        <source type="audio/mpeg" class="au">
-    </audio>
-
+    <div class="container">
+        <div class="box">
+            <h3 id="lblName">点击谁是酱油</h3>
+            <button id="btnDal" class="btn">点击谁是酱油</button>
+        </div>
+     </div>
     <script>
-        var arr = [
+        var _btn = document.querySelector('#btnDal') //按钮
+var _isDal = false //是否开始
+var _timer //定时器
+var arr = [
             { name: '闪开' },
             { name: '闪开' },
             { name: '万夫' },
@@ -101,32 +50,28 @@
             { name: '肖白痴' },
             { name: '肖白痴' },
         ]
+_btn.onclick = function(){
+    if(_isDal){
+        _isDal = false
+        setTimeout(function(){
+            clearInterval(_timer)
+        },500)
+        this.innerHTML = '点击谁是酱油'
+        return false
+    }
+    else{
+        _isDal = true
+    }
 
-        var but = document.getElementById('dian');
-        var xian = document.getElementById('xian')
-        function dian() {
-            var suiji = Math.floor(Math.random() * arr.length)
-            xian.innerHTML = arr[suiji].name
-        }
-   
-        var yin=["http://bbs.170ba.com/梁山传奇1.mp3",
-                "http://bbs.170ba.com/梁山传奇.mp3",
-                "http://bbs.170ba.com/梁山传奇2.mp3",
-                "http://bbs.170ba.com/梁山传奇3.mp3",
-                "http://bbs.170ba.com/梁山传奇4.mp3",
-                "http://bbs.170ba.com/梁山传奇5.mp3",
-                "http://bbs.170ba.com/梁山传奇6.mp3",
-                "http://bbs.170ba.com/梁山传奇7.mp3",
-                "http://bbs.170ba.com/梁山传奇8.mp3",
-                "http://bbs.170ba.com/梁山传奇9.mp3"]
-        var yinsui=Math.floor(Math.random()*yin.length)
-        var au=document.getElementsByClassName('au')
-        var auo=document.querySelector('audio')
-        au[0].src=yin[yinsui]
-        au[1].src=yin[yinsui]
-        console.log(au[0])
-        console.log(au[1])
+   _timer =  setInterval(function(){
+        var random = Math.floor(Math.random()*arr.length)
+        var txt =  arr[random].name
+        document.querySelector('#lblName').innerHTML = txt
+    },100)
+
+    this.innerHTML = '停止'
+}
+
     </script>
 </body>
-
 </html>
