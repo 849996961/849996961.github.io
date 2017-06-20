@@ -73,6 +73,18 @@
         }, function (err) {
             console.log(err)
         })
+
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(function(pos){
+                var h1=document.createElement('h1')
+                h1.innerText=pos.coords.latitude+','+pos.coords.longitude
+                document.body.appendChild(h1)
+                
+            },function(err){
+                console.log(err)
+            })
+
+        }
     </script>
     <!--<script>
         var _btn = document.querySelector('#btnDal') //按钮
