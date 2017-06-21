@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" value="" id='txt'>
+    <button type="" onclick="dian()">提问</button>
+
+    <div id="xie">
+
+    </div>
+    <script>
+        var shu = document.getElementById("txt")
+
+        var div = document.getElementById("xie")
+        function dian() {
+            var xhr = new XMLHttpRequest()
+            var zhi = shu.value
+            xhr.onreadystatechange = function (e) {
+
+                if (xhr.readyState == 4) {
+                    var msg = JSON.parse(xhr.response)
+                    if (msg.code == 200000) {
+
+                        div.innerHTML += `<a href=${msg.url}>${msg.text}</a>`
+                    } else {
+
+
+                        div.innerHTML += `<p>问：${zhi}</p><p>答：${msg.text}</p>`
+                    }
+                }
+
+            }
+
+            xhr.open('get', 'http://www.tuling123.com/openapi/api?key=6991a9741f12408582d718812f32b5a5&info=' + zhi)
+            xhr.send()
+        }
+    </script>
+</body>
+
+</html>
